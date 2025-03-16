@@ -11,7 +11,7 @@ This Terraform project sets up an AWS environment with the following resources:
 
 - Terraform installed on my local machine
 - AWS CLI configured with appropriate credentials
-- An existing VPC and subnets
+- An existing VPC and subnets in my aws free-tier environment
 
 ## Variables
 

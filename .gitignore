@@ -1,1 +1,5 @@
 .Terraform/
+.terraform.lock.hcl
+EC2-keys.pem
+terraform.tfstate
+terraform.tfstate.backup

@@ -104,7 +104,7 @@ resource "aws_efs_mount_target" "us-east-1f-mount-target" {
 resource "aws_instance" "First_instance" {
   ami                  = "ami-08b5b3a93ed654d19"
   instance_type        = "t2.micro"
-  key_name             = "EC2-keys"
+  key_name             = var.Ec2_secrete_key
   security_groups      = [aws_security_group.Instances_SG.id]
   subnet_id            = var.ec2_subnet_id_1a
   iam_instance_profile = aws_iam_instance_profile.EFS_access_profile.name
@@ -126,7 +126,7 @@ resource "aws_instance" "First_instance" {
 resource "aws_instance" "Second_instance" {
   ami                  = "ami-08b5b3a93ed654d19"
   instance_type        = "t2.micro"
-  key_name             = "EC2-keys"
+  key_name             = var.Ec2_secrete_key
   security_groups      = [aws_security_group.Instances_SG.id]
   subnet_id            = var.ec2_subnet_id_1f
   iam_instance_profile = aws_iam_instance_profile.EFS_access_profile.name
@@ -143,7 +143,7 @@ resource "null_resource" "mount_efs_second_instance" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("${path.module}/EC2-keys.pem")
+    private_key = file("${path.module}/${var.Ec2_secrete_key}.pem")
     host        = aws_instance.Second_instance.public_ip
   }
 

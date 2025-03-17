@@ -28,3 +28,9 @@ variable "cidr_block" {
   default     = ["172.31.64.0/18"]
 }
 
+variable "Ec2_secrete_key" {
+  description = "Ec2_secrete_key"
+  type        = string
+  default     = "EC2-keys"
+  
+}
